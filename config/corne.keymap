@@ -11,6 +11,14 @@
 / {
     keymap {
         compatible = "zmk,keymap";
+        behaviors {
+        &mt {
+            tapping-term-ms = <225>;    // Slightly higher than QMK default to prevent accidental mods
+            quick-tap-ms = <200>;       // Essential: Allows double-tapping for "aa", "ll", etc.
+            flavor = "tap-preferred";   // Matches standard QMK behavior
+            retro-tap;                  // If you hold and release without hitting another key, it still taps
+        };
+    };
 
         default_layer {
             // -----------------------------------------------------------------------------------------
