@@ -6,10 +6,11 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 #include "keys_da.h"
 
 / {
-behaviors {
+    behaviors {
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -18,6 +19,7 @@ behaviors {
             quick-tap-ms = <175>;                // Repeat keys easily
             require-prior-idle-ms = <150>;       // Prevents mods during fast "rolling"
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41>;
             hold-trigger-on-release;             // Only trigger if you release the second key
         };
@@ -30,10 +32,12 @@ behaviors {
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
             hold-trigger-on-release;
         };
     };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -45,10 +49,10 @@ behaviors {
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp DA_TILDE  &kp Q       &kp W       &kp E         &kp R        &kp T        &kp Y        &kp U            &kp I         &kp O          &kp P           &kp DA_A_RING
-&kp DA_SLASH  &hml LGUI A  &hml LALT S  &hml LCTRL D   &hml LSHFT F  &kp G        &kp H        &hmr RSHFT J      &hmr RCTRL K   &hmr RALT L     &hmr RGUI DA_AE  &kp DA_O_SLASH
-&kp LSHFT     &kp Z       &kp X       &kp C         &kp V        &kp B        &kp N        &kp M            &kp DA_COMMA  &kp DA_PERIOD  &kp DA_MINUS    &kp ESC
-                                      &lt 2 ESCAPE  &lt 3 SPACE  &lt 4 TAB    &lt 5 ENTER  &lt 1 BACKSPACE  &lt 6 DELETE
+&kp DA_TILDE  &kp Q        &kp W        &kp E         &kp R         &kp T        &kp Y        &kp U            &kp I         &kp O          &kp P            &kp DA_A_RING
+&kp DA_SLASH  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &kp G        &kp H        &hmr RSHFT J     &hmr RCTRL K  &hmr RALT L    &hmr RGUI DA_AE  &kp DA_O_SLASH
+&kp LSHFT     &kp Z        &kp X        &kp C         &kp V         &kp B        &kp N        &kp M            &kp DA_COMMA  &kp DA_PERIOD  &kp DA_MINUS     &kp ESC
+                                        &lt 2 ESCAPE  &lt 3 SPACE   &lt 4 TAB    &lt 5 ENTER  &lt 1 BACKSPACE  &lt 6 DELETE
             >;
         };
 
@@ -60,10 +64,10 @@ behaviors {
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp N1  &kp NUMBER_7  &kp NUMBER_8         &kp RS(NUMBER_9)  &kp RIGHT_BRACKET    &kp N6  &kp N7          &kp N8            &kp N9         &kp N0        &kp BSPC
-&trans  &trans  &kp NUMBER_4  &kp NUMBER_5         &kp NUMBER_6      &kp EQUAL            &trans  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT   &kp LEFT_GUI  &trans
-&trans  &trans  &kp NUMBER_1  &kp N2               &kp NUMBER_3      &kp BACKSLASH        &trans  &trans          &trans            &kp RIGHT_ALT  &trans        &trans
-                              &kp DA_GREATER_THAN  &kp NUMBER_0      &kp MINUS            &trans  &trans          &trans
+&trans  &kp N1  &kp NUMBER_7  &kp NUMBER_8         &kp NUMBER_9  &kp RIGHT_BRACKET    &kp N6  &kp N7          &kp N8            &kp N9         &kp N0        &kp BSPC
+&trans  &trans  &kp NUMBER_4  &kp NUMBER_5         &kp NUMBER_6  &kp EQUAL            &trans  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT   &kp LEFT_GUI  &trans
+&trans  &trans  &kp NUMBER_1  &kp N2               &kp NUMBER_3  &kp BACKSLASH        &trans  &trans          &trans            &kp RIGHT_ALT  &trans        &trans
+                              &kp DA_GREATER_THAN  &kp NUMBER_0  &kp MINUS            &trans  &trans          &trans
             >;
         };
 
@@ -75,10 +79,10 @@ behaviors {
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
-&kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
-&kp LSHFT  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
-                             &kp LGUI  &trans    &kp SPACE    &kp RET    &trans     &kp RALT
+&trans  &trans        &trans         &trans            &trans          &trans    &trans      &trans            &trans        &trans        &trans              &trans
+&trans  &kp LEFT_GUI  &kp LEFT_ALT   &kp LEFT_CONTROL  &kp LEFT_SHIFT  &trans    &trans      &kp C_PREV        &kp C_VOL_DN  &kp C_VOL_UP  &kp C_FAST_FORWARD  &trans
+&trans  &trans        &kp RIGHT_ALT  &trans            &trans          &trans    &trans      &trans            &trans        &trans        &trans              &trans
+                                     &kp LGUI          &trans          &trans    &kp C_STOP  &kp C_PLAY_PAUSE  &kp C_MUTE
             >;
         };
 
@@ -93,28 +97,28 @@ behaviors {
 
         mouse_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans          &trans          &trans        &trans           &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &trans  &trans
+                        &trans  &trans  &trans    &mkp MB2        &mkp MB1        &mkp MB3
             >;
         };
 
         symbol_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+&trans  &trans  &kp AMPERSAND  &kp STAR     &trans     &trans          &trans  &kp DA_LEFT_BRACE        &kp RIGHT_BRACE           &trans  &trans  &trans
+&trans  &trans  &kp DOLLAR     &kp PERCENT  &kp CARET  &kp PLUS        &trans  &kp DA_LEFT_PARENTHESIS  &kp DA_RIGHT_PARENTHESIS  &trans  &trans  &trans
+&trans  &trans  &kp EXCL       &kp AT       &kp HASH   &kp PIPE        &trans  &kp DA_LEFT_BRACKET      &kp DA_RIGHT_BRACKET      &trans  &trans  &trans
+                               &trans       &trans     &kp QUESTION    &trans  &trans                   &trans
             >;
         };
 
         fn_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+&trans  &kp F12  &kp F7  &kp F8  &kp F9     &trans     &trans  &trans          &trans            &trans        &trans        &trans
+&trans  &kp F11  &kp F4  &kp F5  &kp F6     &trans     &trans  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI  &trans
+&trans  &kp F10  &kp F1  &kp F2  &kp F3     &trans     &trans  &trans          &trans            &trans        &trans        &trans
+                         &trans  &kp SPACE  &kp TAB    &trans  &trans          &trans
             >;
         };
     };
