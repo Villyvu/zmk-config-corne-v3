@@ -39,7 +39,7 @@
         };
 
         slashes: f_or_b_slash {
-            compatible = "zmk, behavior-mod-morph";
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp DA_SLASH>, <&kp DA_BACKSLASH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
