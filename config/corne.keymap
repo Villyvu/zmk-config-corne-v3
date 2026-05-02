@@ -37,6 +37,13 @@
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
             hold-trigger-on-release;
         };
+
+        slashes: f_or_b_slash {
+            compatible = "zmk, behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DA_SLASH>, <&kp DA_BACKSLASH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        }
     };
 
     keymap {
@@ -48,10 +55,10 @@
             // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
             // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-
+            display-name = "Base";
             bindings = < 
 &kp DA_TILDE  &kp Q        &kp W        &kp E         &kp R         &kp T        &kp Y        &kp U            &kp I         &kp O          &kp P            &kp DA_A_RING
-&kp DA_SLASH  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &kp G        &kp H        &hmr RSHFT J     &hmr RCTRL K  &hmr RALT L    &hmr RGUI DA_AE  &kp DA_O_SLASH
+&slashes  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &kp G        &kp H        &hmr RSHFT J     &hmr RCTRL K  &hmr RALT L    &hmr RGUI DA_AE  &kp DA_O_SLASH
 &kp LSHFT     &kp Z        &kp X        &kp C         &kp V         &kp B        &kp N        &kp M            &kp DA_COMMA  &kp DA_PERIOD  &kp DA_MINUS     &kp ESC
                                         &lt 2 ESCAPE  &lt 3 SPACE   &lt 4 TAB    &lt 5 ENTER  &lt 1 BACKSPACE  &lt 6 DELETE
             >;
@@ -63,11 +70,11 @@
             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
             // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
             //                    | GUI |     | SPC |   | ENT |     | ALT |
-
+            display-name = "Num";
             bindings = < 
 &trans  &kp N1  &kp NUMBER_7  &kp NUMBER_8         &kp NUMBER_9  &kp RIGHT_BRACKET    &kp N6  &kp N7          &kp N8            &kp N9         &kp N0        &kp BSPC
 &trans  &trans  &kp NUMBER_4  &kp NUMBER_5         &kp NUMBER_6  &kp EQUAL            &trans  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT   &kp LEFT_GUI  &trans
-&trans  &trans  &kp NUMBER_1  &kp N2               &kp NUMBER_3  &kp BACKSLASH        &trans  &trans          &trans            &kp RIGHT_ALT  &trans        &trans
+&trans  &kp DA_LESS_THAN  &kp NUMBER_1  &kp N2               &kp NUMBER_3  &kp BACKSLASH        &trans  &trans          &trans            &kp RIGHT_ALT  &trans        &trans
                               &kp DA_GREATER_THAN  &kp NUMBER_0  &kp MINUS            &trans  &trans          &trans
             >;
         };
@@ -78,16 +85,17 @@
             // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
             // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
             //                    | GUI |     | SPC |   | ENT |     | ALT |
-
+            display-name = "Media";
             bindings = < 
 &bt BT_CLR_ALL  &bt BT_SEL 3  &bt BT_SEL 2   &bt BT_SEL 1   &bt BT_SEL 0 &trans    &trans      &trans            &trans        &trans        &trans              &trans
-&trans  &kp LEFT_GUI  &kp LEFT_ALT   &bt BT_PRV  &bt BT_NXT &bt BT_CLR   &trans      &kp C_PREV        &kp C_VOL_DN  &kp C_VOL_UP  &kp C_FAST_FORWARD  &trans
+&trans  &kp LEFT_GUI  &kp LEFT_ALT   &bt BT_PRV  &bt BT_NXT &bt BT_CLR   &kp C_PREV        &kp C_VOL_DN  &kp C_VOL_UP  &kp C_FAST_FORWARD  &trans   &trans
 &trans  &trans        &kp RIGHT_ALT  &trans            &trans            &trans    &trans      &trans            &trans        &trans        &trans              &trans
                                      &kp LGUI          &trans            &trans    &kp C_STOP  &kp C_PLAY_PAUSE  &kp C_MUTE
             >;
         };
 
         nav_layer {
+            display-name = "Navigation";
             bindings = < 
 &trans  &trans        &trans         &trans            &trans          &trans    &trans          &trans          &trans        &trans           &trans        &trans
 &trans  &kp LEFT_GUI  &kp LEFT_ALT   &kp LEFT_CONTROL  &kp LEFT_SHIFT  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp CAPSLOCK  &trans
@@ -97,6 +105,7 @@
         };
 
         mouse_layer {
+            display-name = "Mouse";
             bindings = < 
 &trans  &trans  &trans  &trans  &trans  &trans    &trans          &trans          &trans        &trans           &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans  &trans
@@ -106,8 +115,8 @@
         };
 
         symbol_layer {
+            display-name = "Symbol";
             bindings = <
-                    
 &trans  &trans  &kp AMPERSAND  &kp STAR     &trans     &trans          &trans  &kp DA_LEFT_BRACE        &kp RIGHT_BRACE           &trans  &trans  &trans
 &trans  &trans  &kp DOLLAR     &kp PERCENT  &kp CARET  &kp PLUS        &trans  &kp DA_LEFT_PARENTHESIS  &kp DA_RIGHT_PARENTHESIS  &trans  &trans  &trans
 &trans  &trans  &kp EXCL       &kp AT       &kp HASH   &kp PIPE        &trans  &kp DA_LEFT_BRACKET      &kp DA_RIGHT_BRACKET      &trans  &trans  &trans
@@ -116,6 +125,7 @@
         };
 
         fn_layer {
+            display-name = "Function"; 
             bindings = < 
 &trans  &kp F12  &kp F7  &kp F8  &kp F9     &trans     &trans  &trans          &trans            &trans        &trans        &trans
 &trans  &kp F11  &kp F4  &kp F5  &kp F6     &trans     &trans  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI  &trans
