@@ -60,7 +60,7 @@
             display-name = "Base";
             bindings = <
 &kp DA_TILDE  &kp Q        &kp W        &kp E         &kp R         &kp T        &kp Y        &kp U            &kp I         &kp O          &kp P            &kp DA_A_RING
-&slashes      &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &kp G        &kp H        &hmr RSHFT J     &hmr RCTRL K  &hmr RALT L    &hmr RGUI DA_AE  &kp DA_O_SLASH
+&slashes      &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &kp G        &kp H        &hmr RSHFT J     &hmr RCTRL K  &hmr LALT L    &hmr RGUI DA_AE  &kp DA_O_SLASH
 &kp CAPS      &kp Z        &kp X        &kp C         &kp V         &kp B        &kp N        &kp M            &kp DA_COMMA  &kp DA_PERIOD  &kp DA_MINUS     &kp LEFT_SHIFT
                                         &lt 2 ESCAPE  &lt 3 SPACE   &lt 4 TAB    &lt 5 ENTER  &lt 1 BACKSPACE  &lt 6 DELETE
             >;
