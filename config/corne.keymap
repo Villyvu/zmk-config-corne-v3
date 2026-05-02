@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/bt.h>
 #include "keys_da.h"
 
 / {
@@ -48,7 +49,7 @@
             // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
-            bindings = <
+            bindings = < &studio_unlock
 &kp DA_TILDE  &kp Q        &kp W        &kp E         &kp R         &kp T        &kp Y        &kp U            &kp I         &kp O          &kp P            &kp DA_A_RING
 &kp DA_SLASH  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHFT F  &kp G        &kp H        &hmr RSHFT J     &hmr RCTRL K  &hmr RALT L    &hmr RGUI DA_AE  &kp DA_O_SLASH
 &kp LSHFT     &kp Z        &kp X        &kp C         &kp V         &kp B        &kp N        &kp M            &kp DA_COMMA  &kp DA_PERIOD  &kp DA_MINUS     &kp ESC
@@ -63,7 +64,7 @@
             // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
-            bindings = <
+            bindings = < &studio_unlock
 &trans  &kp N1  &kp NUMBER_7  &kp NUMBER_8         &kp NUMBER_9  &kp RIGHT_BRACKET    &kp N6  &kp N7          &kp N8            &kp N9         &kp N0        &kp BSPC
 &trans  &trans  &kp NUMBER_4  &kp NUMBER_5         &kp NUMBER_6  &kp EQUAL            &trans  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT   &kp LEFT_GUI  &trans
 &trans  &trans  &kp NUMBER_1  &kp N2               &kp NUMBER_3  &kp BACKSLASH        &trans  &trans          &trans            &kp RIGHT_ALT  &trans        &trans
@@ -78,7 +79,7 @@
             // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
-            bindings = <
+            bindings = < &studio_unlock
 &bt BT_CLR_ALL  &bt BT_SEL 3  &bt BT_SEL 2   &bt BT_SEL 1   &bt BT_SEL 0 &trans    &trans      &trans            &trans        &trans        &trans              &trans
 &trans  &kp LEFT_GUI  &kp LEFT_ALT   &bt BT_PRV  &bt BT_NXT &bt BT_CLR   &trans      &kp C_PREV        &kp C_VOL_DN  &kp C_VOL_UP  &kp C_FAST_FORWARD  &trans
 &trans  &trans        &kp RIGHT_ALT  &trans            &trans            &trans    &trans      &trans            &trans        &trans        &trans              &trans
@@ -87,7 +88,7 @@
         };
 
         nav_layer {
-            bindings = <
+            bindings = < &studio_unlock
 &trans  &trans        &trans         &trans            &trans          &trans    &trans          &trans          &trans        &trans           &trans        &trans
 &trans  &kp LEFT_GUI  &kp LEFT_ALT   &kp LEFT_CONTROL  &kp LEFT_SHIFT  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp CAPSLOCK  &trans
 &trans  &trans        &kp RIGHT_ALT  &trans            &trans          &trans    &kp INSERT      &kp PAGE_DOWN   &kp PAGE_UP   &kp HOME         &kp END       &trans
@@ -96,7 +97,7 @@
         };
 
         mouse_layer {
-            bindings = <
+            bindings = < &studio_unlock
 &trans  &trans  &trans  &trans  &trans  &trans    &trans          &trans          &trans        &trans           &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &trans  &trans
@@ -106,6 +107,7 @@
 
         symbol_layer {
             bindings = <
+                    &studio_unlock
 &trans  &trans  &kp AMPERSAND  &kp STAR     &trans     &trans          &trans  &kp DA_LEFT_BRACE        &kp RIGHT_BRACE           &trans  &trans  &trans
 &trans  &trans  &kp DOLLAR     &kp PERCENT  &kp CARET  &kp PLUS        &trans  &kp DA_LEFT_PARENTHESIS  &kp DA_RIGHT_PARENTHESIS  &trans  &trans  &trans
 &trans  &trans  &kp EXCL       &kp AT       &kp HASH   &kp PIPE        &trans  &kp DA_LEFT_BRACKET      &kp DA_RIGHT_BRACKET      &trans  &trans  &trans
@@ -114,7 +116,7 @@
         };
 
         fn_layer {
-            bindings = <
+            bindings = < &studio_unlock
 &trans  &kp F12  &kp F7  &kp F8  &kp F9     &trans     &trans  &trans          &trans            &trans        &trans        &trans
 &trans  &kp F11  &kp F4  &kp F5  &kp F6     &trans     &trans  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI  &trans
 &trans  &kp F10  &kp F1  &kp F2  &kp F3     &trans     &trans  &trans          &trans            &trans        &trans        &trans
