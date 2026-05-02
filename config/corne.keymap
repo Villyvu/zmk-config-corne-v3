@@ -43,7 +43,7 @@
             #binding-cells = <0>;
             bindings = <&kp DA_SLASH>, <&kp DA_BACKSLASH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-        }
+        };
     };
 
     keymap {
