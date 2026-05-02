@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
+ 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
@@ -44,6 +45,11 @@
             bindings = <&kp DA_SLASH>, <&kp DA_BACKSLASH>;
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        msc: mouse_scroll {
+                time-to-max-speed-ms = <0>;
+                acceleration-exponent = <0>;
         };
     };
 
