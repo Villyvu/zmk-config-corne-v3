@@ -12,6 +12,15 @@
 
 / {
     behaviors {
+        // Smart Alt-Tab: tap = switch, tap again = cycle, releases Alt when
+        // any non-ignored key is pressed. Instant — no hold-tap delay.
+        swapper: swapper {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+            ignored-key-positions = <8 16>;   // re-tap swapper (8) + hold Shift (16) to reverse-cycle
+        };
+
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -89,7 +98,7 @@
 
         nav_layer {
             bindings = <
-&trans  &trans        &trans         &trans            &trans          &trans    &trans          &trans          &trans        &trans           &trans        &trans
+&trans  &trans        &trans         &trans            &trans          &trans    &trans          &trans          &swapper      &trans           &trans        &trans
 &trans  &kp LEFT_GUI  &kp LEFT_ALT   &kp LEFT_CONTROL  &kp LEFT_SHIFT  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp CAPSLOCK  &trans
 &trans  &trans        &kp RIGHT_ALT  &trans            &trans          &trans    &kp INSERT      &kp PAGE_DOWN   &kp PAGE_UP   &kp HOME         &kp END       &trans
                                      &trans            &trans          &trans    &kp ENTER       &kp BACKSPACE   &kp DELETE
